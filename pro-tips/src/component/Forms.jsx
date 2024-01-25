@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import {ToastContainer, toast} from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Forms = () => {
   const [data, setData] = useState({
@@ -25,6 +28,7 @@ const Forms = () => {
     setError(errors);
 
     if (Object.keys(errors).length === 0) {
+      toast("You have registered successfully YAAYAYY!!")
       setFormSubmit(true);
     } else {
       setFormSubmit(false);
@@ -51,6 +55,7 @@ const Forms = () => {
   return (
     <>
       <div className="parent">
+        
         <form onSubmit={handleSubmit} className="form">
           <div className="message">
             {formSubmit && <p className="successMessage">Registration completed Successfully :)</p>}
@@ -112,6 +117,7 @@ const Forms = () => {
           </div>
           <input type="submit" value={"Register"} className="submitButton" />
         </form>
+        <ToastContainer />
       </div>
     </>
   );
